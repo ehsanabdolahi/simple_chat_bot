@@ -1,7 +1,14 @@
+import 'package:chat_bot/src/constants/categories/string_category.dart';
+import 'package:chat_bot/src/presentation/pages/chat_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,17 +18,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Simple Chat Bot',
+      title: StringCategory.appName,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Simple Chat Bot'),
+      home: const ChatPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+/*class MyHomePage extends StatefulWidget {
   const MyHomePage({
     super.key,
     required this.title,
@@ -64,4 +71,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
+}*/
