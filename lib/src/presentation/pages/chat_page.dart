@@ -13,6 +13,21 @@ class ChatPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final textController = useTextEditingController();
     final messages = ref.watch(chatNotifierProvider);
+    final scrollController = useScrollController();
+
+    // Auto scroll to bottom
+    useEffect(() {
+      if (messages.isNotEmpty) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          scrollController.animateTo(
+            scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
+        });
+      }
+      return null;
+    }, [messages.length]);
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -25,6 +40,7 @@ class ChatPage extends HookConsumerWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                controller: scrollController,
                 itemCount: messages.length,
                 itemBuilder: (context, index) {
                   final message = messages[index];
