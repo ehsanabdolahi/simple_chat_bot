@@ -31,6 +31,7 @@ dependencies:
   flutter_hooks: ^0.20.5
   hooks_riverpod: ^2.4.10
   riverpod_annotation: ^2.3.4
+  json_annotation: ^4.8.1
   flutter:
     sdk: flutter
 
@@ -40,10 +41,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   get_it: ^8.0.3
+  freezed: ^2.5.7
 
 dev_dependencies:
   riverpod_generator: ^2.3.11
   build_runner: ^2.4.8
+  json_serializable: ^6.7.1
   flutter_test:
     sdk: flutter
 
