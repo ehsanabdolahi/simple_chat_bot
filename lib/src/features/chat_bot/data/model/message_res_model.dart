@@ -1,8 +1,5 @@
-// To parse this JSON data, do
-//
-//     final messageResModel = messageResModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
+// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
@@ -16,6 +13,7 @@ String messageResModelToJson(MessageResModel data) => json.encode(data.toJson())
 @freezed
 class MessageResModel with _$MessageResModel {
   const factory MessageResModel({
+    // ignore: invalid_annotation_target
     @JsonKey(name: "message")
     required String message,
   }) = _MessageResModel;
